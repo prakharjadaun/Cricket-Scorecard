@@ -25,19 +25,19 @@ int toss;
 //----------------------------------------------function prototypes-------------------------------------------------
 
 //to display the welcome message and rules
-void welcome_message();
+void welcomeMessage();
 //to input both the team names
-void get_team_names();
+void getTeamNames();
 //to input the number of overs the game has to be played
-void input_overs();
+void inputOvers();
 //to decide how many players will be playing the game, it will be deicded on the basis of the number of overs
-void player_decider();
+void playerDecider();
 //to input the names of the players of both the teams
-void player_names_input();
+void playerNamesInput();
 //to calculate the score and display
 void scoreboard();
 //to display the score board
-void display_scoreboard(char player_name[30],char bowler[30],int sixes,int fours,int runs_scored,int runs_lost,int total_runs,int wicket_taken);
+void displayScoreBoard(char player_name[30],char bowler[30],int sixes,int fours,int runs_scored,int runs_lost,int total_runs,int wicket_taken);
 //to display the whole scoreboard
 void scorecard();
 
@@ -45,11 +45,11 @@ void scorecard();
 
 int main()
 {
-    welcome_message();    
-    get_team_names();
-    input_overs();
-    player_decider();
-    player_names_input();
+    welcomeMessage();    
+    getTeamNames();
+    inputOvers();
+    playerDecider();
+    playerNamesInput();
     scoreboard();
     scorecard();
     return 0;
@@ -57,7 +57,7 @@ int main()
 
 /*-----------------------------------------------function definitions----------------------------------------*/
 //function to print the rules of the game
-void welcome_message()
+void welcomeMessage()
 {
     cout<<"\n\n\t\t\t\t\tWelcome to the Gentlemen's Game....!";
     cout<<"\n\n\t\t\t\t\t\tRULES OF THE GAME \n\n";
@@ -73,7 +73,7 @@ void welcome_message()
     cout<<"\n10. If the scores get level, then the match will be drawn";
 }
 //function to get the names of the team
-void get_team_names()
+void getTeamNames()
 {
     cout<<"\n\n";
     for(int i=0;i<2;i++)
@@ -84,7 +84,7 @@ void get_team_names()
 }
 
 //function to input the number of overs
-void input_overs()
+void inputOvers()
 {
     cout<<"\nEnter the number of overs you have to play the game : ";
     cin>>number_of_overs;
@@ -97,7 +97,7 @@ void input_overs()
 }
 
 //function to decide the number of players playing the game
-void player_decider()
+void playerDecider()
 {
     if(number_of_overs<=5)
     {
@@ -115,7 +115,7 @@ void player_decider()
 }
 
 //function to input the names of the player
-void player_names_input()
+void playerNamesInput()
 {
     char ch;
     cout<<"\n\nDo you want to enter names or want to assign them automatically? (press Y to enter names) : ";
@@ -167,7 +167,7 @@ void scoreboard()
 {
     int i=0,j=0,k=0,RUNS=8,temp;
     cout<<"\n\n"<<team[0].name<<" is going to Bat now......!";
-    display_scoreboard(team[0].player_name[0],team[1].player_name[0],team[0].sixes,team[0].fours,team[0].runs_scored[0],team[1].runs_lost[0],team[0].total_runs,team[1].wicket_taken[0]);
+    displayScoreBoard(team[0].player_name[0],team[1].player_name[0],team[0].sixes,team[0].fours,team[0].runs_scored[0],team[1].runs_lost[0],team[0].total_runs,team[1].wicket_taken[0]);
     for(j=0;j<number_of_overs;j++)
     {
         cout<<"\n\t\t\t\t\t\tOver "<<j+1<<"!";
@@ -204,14 +204,14 @@ void scoreboard()
                 team[1].runs_lost[j]+=temp;
                 team[0].total_runs+=temp;
             }
-            display_scoreboard(team[0].player_name[k],team[1].player_name[j],team[0].sixes,team[0].fours,team[0].runs_scored[k],team[1].runs_lost[j],team[0].total_runs,team[1].wicket_taken[j]);
+            displayScoreBoard(team[0].player_name[k],team[1].player_name[j],team[0].sixes,team[0].fours,team[0].runs_scored[k],team[1].runs_lost[j],team[0].total_runs,team[1].wicket_taken[j]);
         }
     }
 
     cout<<"\n\n"<<team[1].name<<" is going to Bat now......!";
     k=0;
     int check=1;
-    display_scoreboard(team[1].player_name[0],team[0].player_name[0],team[1].sixes,team[1].fours,team[1].runs_scored[0],team[0].runs_lost[0],team[1].total_runs,team[0].wicket_taken[0]);
+    displayScoreBoard(team[1].player_name[0],team[0].player_name[0],team[1].sixes,team[1].fours,team[1].runs_scored[0],team[0].runs_lost[0],team[1].total_runs,team[0].wicket_taken[0]);
     for(j=0;j<number_of_overs;j++)
     {
         cout<<"\n\t\t\t\tOver"<<j+1<<"!\n\n";
@@ -248,7 +248,7 @@ void scoreboard()
                 team[0].runs_lost[j]+=temp;
                 team[1].total_runs+=temp;
             }
-            display_scoreboard(team[1].player_name[k],team[0].player_name[j],team[1].sixes,team[1].fours,team[1].runs_scored[k],team[0].runs_lost[j],team[1].total_runs,team[0].wicket_taken[j]);
+            displayScoreBoard(team[1].player_name[k],team[0].player_name[j],team[1].sixes,team[1].fours,team[1].runs_scored[k],team[0].runs_lost[j],team[1].total_runs,team[0].wicket_taken[j]);
             if(team[0].total_runs<team[1].total_runs)
             {
                 cout<<"\n\n\t\t\t\t"<<team[1].name<<" has beaten "<<team[0].name<<"........!";
@@ -268,7 +268,7 @@ void scoreboard()
 }
 
 //function to display the values of score card
-void display_scoreboard(char player_name[30],char bowler[30],int sixes,int fours,int runs_scored,int runs_lost,int total_runs,int wicket_taken)
+void displayScoreBoard(char player_name[30],char bowler[30],int sixes,int fours,int runs_scored,int runs_lost,int total_runs,int wicket_taken)
 { 
     char ch;
     cout<<"\n";
