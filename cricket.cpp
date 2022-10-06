@@ -4,7 +4,8 @@
 #include<string.h>
 using namespace std;
 
-struct details
+//structure named "Details" for capsulating all the details of a team
+struct Details
 {
     char name[30];
     char player_name[11][30];
@@ -16,6 +17,7 @@ struct details
     int wicket_taken[11];
 }team[2];
 
+//global variables
 int number_of_overs;
 int number_of_players;
 int toss;
@@ -39,7 +41,7 @@ void display_scoreboard(char player_name[30],char bowler[30],int sixes,int fours
 //to display the whole scoreboard
 void scorecard();
 
-//-----------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------main function---------------------------------------------
 
 int main()
 {
@@ -53,6 +55,8 @@ int main()
     return 0;
 }
 
+/*-----------------------------------------------function definitions----------------------------------------*/
+//function to print the rules of the game
 void welcome_message()
 {
     cout<<"\n\n\t\t\t\t\tWelcome to the Gentlemen's Game....!";
@@ -68,7 +72,7 @@ void welcome_message()
     cout<<"\n9. As you keep on pressing any character you will get the updated score.";
     cout<<"\n10. If the scores get level, then the match will be drawn";
 }
-
+//function to get the names of the team
 void get_team_names()
 {
     cout<<"\n\n";
@@ -79,6 +83,7 @@ void get_team_names()
     }
 }
 
+//function to input the number of overs
 void input_overs()
 {
     cout<<"\nEnter the number of overs you have to play the game : ";
@@ -91,6 +96,7 @@ void input_overs()
     }
 }
 
+//function to decide the number of players playing the game
 void player_decider()
 {
     if(number_of_overs<=5)
@@ -108,6 +114,7 @@ void player_decider()
     cout<<"\n\nThe game will be played with "<<number_of_players<<" players!!"<<endl;
 }
 
+//function to input the names of the player
 void player_names_input()
 {
     char ch;
@@ -155,6 +162,7 @@ void player_names_input()
     }
 }
 
+//function to compute the values of the scorecard 
 void scoreboard()
 {
     int i=0,j=0,k=0,RUNS=8,temp;
@@ -259,6 +267,7 @@ void scoreboard()
     } 
 }
 
+//function to display the values of score card
 void display_scoreboard(char player_name[30],char bowler[30],int sixes,int fours,int runs_scored,int runs_lost,int total_runs,int wicket_taken)
 { 
     char ch;
